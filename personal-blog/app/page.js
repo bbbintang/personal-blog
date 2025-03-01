@@ -1,12 +1,18 @@
 import Header from "@/Components/Header";
+import Image from "next/image";
 
 export default function Home() {
   return (
     <>
     <Header/>
-    <div className='text-center my-8'>
-      <h1 className='text-3x1 sm:text-5x1 font-medium'>Latest Blog</h1>
-      <p>Hello! this is Bintang and here are some of my projects that I have done</p>
+    <div className="flex justify-center items-center">
+      <Image src="/assets/highlight.jpg" alt="" width={300} height={150} />
+    </div>
+    <div className="flex justify-center items-center font-bold text-lg">
+      Sudut Ekspresi
+    </div>
+    <div className="flex justify-center items-center text-sm">
+      Sudut Ekspresi adalah sebuah ruang bagi penulis untuk mengekspresikan dirinya
     </div>
     </>
   );
