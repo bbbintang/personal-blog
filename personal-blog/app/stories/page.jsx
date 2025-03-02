@@ -5,9 +5,7 @@ const page = () => {
   return (
     <div>
       <Header/>
-      <div>
-        <p>ini halaman stories</p>
-      </div>
+      <p>ini stories</p>
     </div>
   )
 }
