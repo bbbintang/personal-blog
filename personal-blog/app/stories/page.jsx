@@ -3,14 +3,21 @@
 import Header from '@/Components/Header'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation';
-import React from 'react'
+import React, { useState } from 'react'
 
 const page = () => {
       const router = useRouter();
+      const [isOpen, setIsOpen] = useState(false);
   
-      const handleFull = () => {
-        router.push("/full");
+      const handleFull = (link) => {
+        router.push(link);
+        setIsOpen(false);
       };
+      const chapters = [
+        {id : 1, name : "Chapter 1", link : "/full"}
+      ];
+
+
   return (
     <div>
       <Header/>
@@ -22,7 +29,25 @@ const page = () => {
           <div className="w-full md:w-3/4 p-2 flex flex-col text-start">
             <label className="block font-semibold mb-1 py-3">Cerita 1</label>
             <p>ini deskripsinyaini deskripsinya</p>
-            <button onClick={handleFull} className='w-30 my-3 border border-black rounded-lg hover:bg-blue-300 cursor-pointer'>Full Story Here</button>
+            
+            <div className='relative'>
+              <button onClick={() => setIsOpen(!isOpen)} className='w-30 my-3 border border-black rounded-lg px-4 py-2 hover:bg-blue-300 cursor-pointer'>
+                Chapters
+              </button>
+              {isOpen && (
+                <div className='absolute left-0 mt-2 w-40 bg-white border border-gray-300 rounded-lg shadow-md'>
+                  {chapters.map((chapter) => (
+                    <div
+                    key={chapter.id}
+                    className="px-3 py-2 hover:bg-gray-100 cursor-pointer"
+                    onClick={() => handleFull(chapter.link)}
+                    >
+                      {chapter.name}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>
