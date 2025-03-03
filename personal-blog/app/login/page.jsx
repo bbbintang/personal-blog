@@ -8,8 +8,7 @@ const page = () => {
     const router = useRouter();
 
     const handleLogin = () => {
-      // Bisa ditambah validasi login sebelum redirect
-      router.push("/post"); // Ganti "/post" dengan halaman tujuan
+      router.push("/post");
     };
 
   return (

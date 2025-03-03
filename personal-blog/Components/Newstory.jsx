@@ -1,6 +1,20 @@
+import { useRouter } from 'next/navigation';
 import React from 'react'
 
 const Newstory = () => {
+    const router = useRouter();
+    
+    const handleNewStory = () => {
+      const confirmSave = window.confirm("Are you sure to save this story?");
+      if(confirmSave){
+        console.log("Story saved!");
+        router.push("/");
+      } else {
+        console.log("Save canceled.");
+      }
+      
+    };
+
   return (
     <div>
       <div className='w-full'>
@@ -63,7 +77,7 @@ const Newstory = () => {
         </div>
           
         <div className='w-full py-2'>
-          <button className='w-25 border border-black rounded-lg'>Simpan</button>
+          <button onClick={handleNewStory} className='w-25 border border-black rounded-lg hover:bg-blue-300 cursor-pointer'>Simpan</button>
         </div>
     </div>
   )
