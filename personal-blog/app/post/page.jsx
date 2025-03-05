@@ -3,21 +3,19 @@
 import Sidebar from '@/Components/Sidebar'
 import Header from '@/Components/Header'
 import React, { useState } from 'react'
-import { useRouter } from 'next/navigation'
 import Newstory from '@/Components/Newstory'
-import Edit from '@/Components/Edit';
 import Logout from '@/Components/Logout';
+import Listedit from '@/Components/Listedit';
 
 const Page = () => {
   const [activePage, setActivePage] = useState("newStory");
-  const router = useRouter();
 
   const renderContent = () => {
     switch (activePage) {
       case "newStory":
         return <Newstory />;
       case "editStory":
-        return <Edit />;
+        return <Listedit />;
       case "logout":
         return <Logout />;
       default:

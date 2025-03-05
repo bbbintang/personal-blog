@@ -24,6 +24,10 @@ const Page = () => {
     }
   };
 
+  const handleBack = () => {
+    router.push('/stories');
+  }
+
   return (
     <div>
       <Header />
@@ -48,6 +52,9 @@ const Page = () => {
         <div className='text-left px-5 mt-5'>
           <p>{chapterData?.content}</p>
         </div>
+      </div>
+      <div className='flex mx-30 justify-end py-2'>
+        <button onClick={handleBack} className='w-25 border border-black rounded-lg hover:bg-blue-300 cursor-pointer'>Story List</button>
       </div>
     </div>
   );
