@@ -9,14 +9,27 @@ const page = () => {
       const router = useRouter();
       const [isOpen, setIsOpen] = useState(false);
   
-      const handleFull = (link) => {
-        router.push(link);
+      const handleFull = (id) => {
+        router.push(`/full?id=${id}`);
         setIsOpen(false);
       };
       const chapters = [
-        {id : 1, name : "Chapter 1", link : "/full"}
+        {id : 1, name : "Chapter 1"},
+        {id : 2, name : "Chapter 2"},
+        {id : 3, name : "Chapter 3"}
       ];
 
+      {chapters.map((chapter) => (
+        <div
+          key={chapter.id}
+          className="px-3 py-2 hover:bg-gray-100 cursor-pointer"
+          onClick={() => handleFull(chapter.id)}
+        >
+          {chapter.name}
+        </div>
+      )
+    )
+  }
 
   return (
     <div>
@@ -40,7 +53,7 @@ const page = () => {
                     <div
                     key={chapter.id}
                     className="px-3 py-2 hover:bg-gray-100 cursor-pointer"
-                    onClick={() => handleFull(chapter.link)}
+                    onClick={() => handleFull(chapter.id)}
                     >
                       {chapter.name}
                     </div>
