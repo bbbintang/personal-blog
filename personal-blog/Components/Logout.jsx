@@ -2,11 +2,16 @@ import { useRouter } from 'next/navigation';
 import React from 'react'
 
 
-const Logout = () => {
+const Logout = ({onLogout}) => {
     const router = useRouter();
     
     const handleLogout = () => {
-        router.push("/");
+        if(onLogout){
+            onLogout();
+        } else {
+            localStorage.removeItem('isLoggedIn');
+            router.push('/');
+        }
     };
     const handlePost = () => {
         router.push("/post");
